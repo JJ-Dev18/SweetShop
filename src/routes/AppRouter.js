@@ -1,5 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
+import {ProductsScreen} from '../components/products/ProductsScreen'
+import {AuthRouter} from './AuthRouter'
+import {PrivateRouter} from './PrivateRouter'
+import {PublicRouter} from './PublicRouter'
+const isLoggedIn= false;
 export const AppRouter = () => {
   return (
     <Router>
@@ -14,7 +19,7 @@ export const AppRouter = () => {
             isLoggedIn={isLoggedIn}
             exact
             path="/"
-            component={JournalScreen}
+            component={ProductsScreen}
           />
 
           <Redirect to="/auth/login" />

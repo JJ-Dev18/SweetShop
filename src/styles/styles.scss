@@ -1,3 +1,4 @@
-body{
-  background: red;
-}
+@import './base/base';
+@import './base/settings';
+@import './auth.scss';
+@import './button.scss'

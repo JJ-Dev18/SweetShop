@@ -1,0 +1,45 @@
+.auth__main{
+  background: url('../images/candies.png');
+  background-color: $secondary;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth__box-container{
+     width: 400px;
+     height: 300px;
+     background-color: white;
+     border-radius: 30px ;
+     text-align: center;
+     padding: 40px;
+     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+     color: $primary;
+     font-weight: bold;
+}
+.auth__input{
+    color:$dark-grey;
+    border: 0px;
+    border-bottom: 1px solid $light-grey;
+    font-size: 16px;
+    margin-bottom: 10px;
+    height: 20px;
+    width: 100%;
+
+    transition: border-bottom .3s ease;
+
+    &:focus {
+        outline: none;
+        border-bottom: 1px solid $primary;
+    }
+    
+}
+.login__container form{
+  display: flex;
+  flex-direction: column;
+}
+.login__container form input{
+  margin-top: 20px;
+}
