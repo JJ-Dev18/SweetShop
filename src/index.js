@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/styles.scss';
-import {AppRouter} from '../src/routes/AppRouter'
+import { SweetShop } from './SweetShop'
 
 
 ReactDOM.render(
-    <AppRouter />,
+  
+    <SweetShop />,
   document.getElementById('root')
 );

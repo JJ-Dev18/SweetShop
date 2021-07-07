@@ -36,6 +36,16 @@
     }
     
 }
+.auth__alert-error {
+
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding : 5px;
+}
 .login__container form{
   display: flex;
   flex-direction: column;

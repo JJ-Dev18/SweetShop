@@ -39,3 +39,25 @@
 .btn-block{
     width: 100%;
 }
+.login-extra{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+}
+    .google-icon {
+        
+        margin-top: 11px;  
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+       
+    }
+   
+.facebook-icon{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 11px;  
+}
