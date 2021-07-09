@@ -31,6 +31,7 @@
 .btn-danger{
     background-color: red;
     transition: background-color .3s ease;
+    color: white;
     &:hover{
         background-color: darken($color: red, $amount: 10);
     }

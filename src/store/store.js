@@ -2,6 +2,8 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { authReducer } from "../reducers/authReducer";
 import thunk from "redux-thunk";
 import { uiReducer } from "../reducers/uiRedcer";
+import { carritoReducer } from "../reducers/carritoReducer";
+import { productsReducer } from "../reducers/productsReducer";
 // import { notesReducer } from "../reducers/notesReducer";
 
 const composeEnhancers =
@@ -12,6 +14,9 @@ const composeEnhancers =
 const reducers = combineReducers({
   auth: authReducer,
   ui: uiReducer,
+  product: productsReducer,
+  carrito: carritoReducer,
+  
   // notes: notesReducer,
 });
 export const store = createStore(

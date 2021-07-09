@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  font-family: 'Amatic SC', cursive;
+  box-sizing: border-box;
 }
 .mt-1{
   margin-top:10px
@@ -17,5 +19,9 @@
 }
 .mb-1{
   margin-bottom: 10px;
+}
+
+.pointer{
+  cursor: pointer;
 }
 

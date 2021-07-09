@@ -1,0 +1,18 @@
+.carrito_icon{
+  position: absolute;
+  top: 30px;
+    right: 45px;
+    color: $primary;
+    // font-weight: bold;
+}
+.carrito_product i{
+  color: red;
+}
+.carrito_product{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fa-backspace{
+  color: $secondary;
+}

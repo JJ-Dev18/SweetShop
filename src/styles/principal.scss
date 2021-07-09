@@ -1,0 +1,9 @@
+.content_principal{
+  height: 100vh;
+  background-color: $primary;
+  background-image: url('../images/candies.png');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

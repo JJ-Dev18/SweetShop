@@ -15,11 +15,18 @@ export const login = (uid,displayName) => ({
     }
 })
 
-export const loggout = () =>( {
+export const logout = () =>( {
   
     type: types.loggout
 })
+export const startLogout = () => {
+  return async (dispatch) => {
+    await firebase.auth().signOut();
 
+    dispatch(logout());
+    // dispatch(noteLogout());
+  };
+};
 export const startRegisterWithEmailPasswordName = (name, email, password) => {
   return (dispatch) => {
     firebase
@@ -45,6 +52,7 @@ export const startLoginEmailPassword = (email, password) => {
       .then(({ user }) => {
         dispatch(login(user.uid, user.displayName));
         dispatch(finishLoading());
+        
       })
       .catch((e) => {
         console.log(e);
@@ -61,6 +69,7 @@ export const startGoogleLogin = () => {
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
         dispatch(login(user.uid, user.displayName));
+        console.log(user);
       })
       .catch( (e) => console.log(e));
   };

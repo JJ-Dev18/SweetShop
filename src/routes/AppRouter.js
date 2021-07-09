@@ -1,13 +1,13 @@
 import React, {useState,useEffect} from 'react'
 import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
  import { firebase } from "../firebase/firebase";
-import {ProductsScreen} from '../components/products/ProductsScreen'
 import {AuthRouter} from './AuthRouter'
 import {PrivateRouter} from './PrivateRouter'
 import {PublicRouter} from './PublicRouter'
-import {useDispatch,useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import { login } from '../actions/auth';
-const isLoggedIn= false;
+import { Principal } from '../components/UI/Principal';
+import { startLoadProducts } from '../actions/products';
 export const AppRouter = () => {
 
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export const AppRouter = () => {
       if (user?.uid) {
         dispatch(login(user.uid, user.displayName));
         setIsLoggedIn(true);
-        // dispatch(startloading(user.uid));
+        dispatch(startLoadProducts());
       } else {
         setIsLoggedIn(false);
       }
@@ -45,7 +45,7 @@ export const AppRouter = () => {
             isLoggedIn={isLoggedIn}
             exact
             path="/"
-            component={ProductsScreen}
+            component={Principal}
           />
 
           <Redirect to="/auth/login" />
