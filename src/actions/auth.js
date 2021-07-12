@@ -7,13 +7,14 @@ import Swal from "sweetalert2";
 
 
 
-export const login = (uid,displayName) => ({
-
-    type: types.login,
-    payload : {
-      uid,displayName
-    }
-})
+export const login = (uid, displayName, photoURL) => ({
+  type: types.login,
+  payload: {
+    uid,
+    displayName,
+    photoURL,
+  },
+});
 
 export const logout = () =>( {
   
@@ -68,8 +69,8 @@ export const startGoogleLogin = () => {
       .auth()
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
-        dispatch(login(user.uid, user.displayName));
-        console.log(user);
+        dispatch(login(user.uid, user.displayName, user.photoURL));
+        console.log(user.photoURL);
       })
       .catch( (e) => console.log(e));
   };

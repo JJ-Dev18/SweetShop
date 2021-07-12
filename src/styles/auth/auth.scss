@@ -1,5 +1,5 @@
 .auth__main{
-  background: url('../images/candies.png');
+  background: url('../../images/candies.png');
   background-color: $secondary;
   height: 100vh;
   width: 100vw;
@@ -10,14 +10,15 @@
 
 .auth__box-container{
      width: 400px;
-     height: 300px;
+     height: 350px;
      background-color: white;
      border-radius: 30px ;
      text-align: center;
-     padding: 40px;
+     padding: 30px;
      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
      color: $primary;
      font-weight: bold;
+     overflow-y: hidden;
 }
 .auth__input{
     color:$dark-grey;
@@ -45,6 +46,8 @@
     justify-content: center;
     margin-bottom: 10px;
     padding : 5px;
+}
+.login__container{
 }
 .login__container form{
   display: flex;

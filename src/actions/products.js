@@ -15,3 +15,7 @@ export const loadingProducts = (products) => ({
     type: types.loadedProducts,
     payload: products
 })
+
+export const openProducts = () => ({
+   type: types.openProducts
+})

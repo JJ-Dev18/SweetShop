@@ -2,9 +2,10 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
-const firebaseConfig = {
+var firebaseConfig = {
   apiKey: "AIzaSyBCZ-EBPuyj9npSVCXR7jnoSSb4zdMz0FY",
   authDomain: "sweetshop-a6156.firebaseapp.com",
+  databaseURL: "https://sweetshop-a6156-default-rtdb.firebaseio.com",
   projectId: "sweetshop-a6156",
   storageBucket: "sweetshop-a6156.appspot.com",
   messagingSenderId: "498046004367",

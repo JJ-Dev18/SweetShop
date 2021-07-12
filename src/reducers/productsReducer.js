@@ -1,7 +1,8 @@
 
 import {types} from '../types/types'  
 const initialState = {
-  sweets: []
+  sweets: [],
+  open : true
 }
 
 export const productsReducer = (state = initialState , action) => {
@@ -9,8 +10,14 @@ export const productsReducer = (state = initialState , action) => {
   switch (action.type) {
     case types.loadedProducts:
       return{
+        ...state,
         sweets : [...action.payload]
       };
+    case types.openProducts : 
+    return{
+      ...state,
+      open : !state.open
+    }  
       
      
   

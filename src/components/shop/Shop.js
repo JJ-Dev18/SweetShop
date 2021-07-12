@@ -1,15 +1,25 @@
-import React ,{useEffect}from 'react'
+import React from 'react'
 import {ProductsScreen} from '../products/ProductsScreen'
 import {useSelector,useDispatch} from 'react-redux'
-import { Navbar } from '../UI/Navbar'
-import { openCarrito, setTotal } from '../../actions/carrito'
-import { totalCarrito } from '../../helpers/totalCarrito'
-export const Shop = () => {
+import { Link, NavLink, useHistory } from "react-router-dom";
+import { openCarrito } from '../../actions/carrito'
+import { loadCompras } from '../../helpers/loadCompras'
+import { openProducts } from '../../actions/products'
+import { loadHistory } from '../../actions/historial';
+import { loadCantidadCompras } from '../../helpers/cantidadCompras';
+
+export const Shop = ({history}) => {
    const dispatch = useDispatch();
    const { sweets } = useSelector((state) => state.product  );
    const { cantidad } = useSelector((state) => state.carrito);
+   const {uid} = useSelector( state => state.auth );
+   
+
    const handleCarritoOpen = () => {
       dispatch(openCarrito())
+      dispatch(openProducts())
+     
+      
    } 
    
   //  useEffect(() => {
@@ -18,19 +28,21 @@ export const Shop = () => {
   //  }, [sweets]);
 
   return (
-    <div className="content_products">
+    <div className="content_products animate__animated animate__fadeIn">
       <h1>Sweets</h1>
-      <i className="fas fa-shopping-cart carrito_icon pointer" onClick={handleCarritoOpen}>{cantidad}</i>
+      
+        <i
+          className="fas fa-shopping-cart carrito_icon pointer"
+          onClick={handleCarritoOpen}
+        >
+          {cantidad}
+        </i>
+     
+
       <div className="grid_products">
-       {
-         
-          sweets.map(sweet => (
-               <ProductsScreen
-                key={sweet.id} 
-                {...sweet}
-                />
-          ))
-       }
+        {sweets.map((sweet) => (
+          <ProductsScreen key={sweet.id} {...sweet} />
+        ))}
       </div>
     </div>
   );

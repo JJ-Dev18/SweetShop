@@ -1,6 +1,5 @@
-import { totalCarrito } from '../helpers/totalCarrito'
-import {types} from '../types/types'
-
+import { db } from "../firebase/firebase";
+import { types } from "../types/types";
 
 // export const startNewProducto = () => {
 //   return async (dispatch, getState) => {
@@ -18,53 +17,49 @@ import {types} from '../types/types'
 //   };
 // };
 export const openCarrito = () => ({
-     type : types.openCarrito,
-     payload: true
-})
+  type: types.openCarrito,
+  payload: true,
+});
 
 export const closeCarrito = () => ({
   type: types.closeCarrito,
-  payload: false
-})
-export const loadAddCarrito = (sweet,cantidad) => {
-  return (dispatch,getState) => {
-     const sweets = getState().carrito.sweets;
-     let exist = false;
-     const cantidadSweet = sweets.length + 1 
-     
-       sweets.map(stateSweet => {
-           if (stateSweet.id === sweet.id) {
-             exist = true;
-             cantidad = stateSweet.cantidad + cantidad ;
-            }
-       
-         })
-       const total = cantidad * sweet.precio;  
-       if(!exist){
-       dispatch(addSweetCarrito(sweet,cantidad,cantidadSweet,total));
-        
-        }
-       else{
-         dispatch(changeCantidadSweet(sweet.id,sweet,cantidad,total))
-         
-       }
+  payload: false,
+});
+export const loadAddCarrito = (sweet, cantidad) => {
+  return (dispatch, getState) => {
+    const sweets = getState().carrito.sweets;
+    let exist = false;
+    const cantidadSweet = sweets.length + 1;
+
+    sweets.forEach((stateSweet) => {
       
-  }
-}
-export const addSweetCarrito = (sweet,cantidad,cantidadSweet,total) => ( {
-
-   type: types.addSweetCarro,
-   payload: {
-     cantidadSweet,
-     sweet: {
-       ...sweet,
-       cantidad,
-       total
-     }
-   }
-
-})
-export const changeCantidadSweet = (id, sweet,cantidad,total) => ({
+        if (stateSweet.id === sweet.id) {
+          exist = true;
+          cantidad = stateSweet.cantidad + cantidad;
+          
+        }
+      
+    });
+    const total = cantidad * sweet.precio;
+    if (!exist) {
+      dispatch(addSweetCarrito(sweet, cantidad, cantidadSweet, total));
+    } else {
+      dispatch(changeCantidadSweet(sweet.id, sweet, cantidad, total));
+    }
+  };
+};
+export const addSweetCarrito = (sweet, cantidad, cantidadSweet, total) => ({
+  type: types.addSweetCarro,
+  payload: {
+    cantidadSweet,
+    sweet: {
+      ...sweet,
+      cantidad,
+      total,
+    },
+  },
+});
+export const changeCantidadSweet = (id, sweet, cantidad, total) => ({
   type: types.addCantidadSweet,
   payload: {
     id,
@@ -72,36 +67,50 @@ export const changeCantidadSweet = (id, sweet,cantidad,total) => ({
       id,
       ...sweet,
       cantidad,
-      total
-    }
+      total,
+    },
   },
 });
 
 export const addCantidadSweet = (sweet) => ({
+  type: types.addCantidadSweet,
+  payload: sweet,
+});
+export const uploadTotalDelete = (id,totalSweet) => {
+   return (dispatch,getState) => {
+      const {total} = getState().carrito
 
-   type: types.addCantidadSweet,
-   payload : sweet
-})
+      const newTotal = total - totalSweet;
+      dispatch(setTotal(newTotal))
+      dispatch(deleteSweet(id))
+   }
+   
+}
 
 export const deleteSweet = (id) => ({
-  type : types.deleteSweet,
-  payload : id 
-})
+  type: types.deleteSweet,
+  payload: id,
+});
 export const setTotal = (total) => ({
-  type: types.totalCarro ,
-  payload : total
-})
+  type: types.totalCarro,
+  payload: total,
+});
 export const calcularTotal = () => {
-  return (dispatch,getState) => {
-      let total = 0 ;
-      const {sweets} = getState().carrito;
+  return (dispatch, getState) => {
+    let total = 0;
+    const { sweets } = getState().carrito;
+  
+    sweets.forEach((sweet) => {
+      total = total + sweet.total;
+    });
+    dispatch(setTotal(total));
+  };
+};
+export const comprarCarrito = () => ({
+  type : types.comprarCarro,
+  payload : []
+  
+})
 
-      sweets.map(sweet => {
-        total = total + sweet.total
-      })
-      dispatch(setTotal(total))
-  }
-}
-export const updateCantidadSweet = () => {
 
-}
+export const updateCantidadSweet = () => {};

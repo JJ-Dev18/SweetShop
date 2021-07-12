@@ -1,7 +1,6 @@
 import React from 'react'
-import {  startLogout } from '../../actions/auth';
-import {useDispatch,useSelector} from 'react-redux'
-import { addCantidadSweet, addSweetCarrito, loadAddCarrito } from '../../actions/carrito';
+import {useDispatch} from 'react-redux'
+import { loadAddCarrito } from '../../actions/carrito';
 import { useForm } from '../../hooks/useForm';
 
 const initialState = {
@@ -27,7 +26,7 @@ export const ProductsScreen = (sweet) => {
      }
      
      dispatch(loadAddCarrito(sweet,cantidad))
-     
+     reset()
     //  dispatch(addCantidadSweet(id,cantidad))
   }
   return (
@@ -39,7 +38,7 @@ export const ProductsScreen = (sweet) => {
       <div className="img_product">
         <img
           src={sweet.url}
-          
+          alt="imagen producto"
         ></img>
       </div>
       <div className="info_product">

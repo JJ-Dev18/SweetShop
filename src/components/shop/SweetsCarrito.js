@@ -1,16 +1,15 @@
 import React from 'react'
-import { useDispatch, useSelector } from "react-redux";
-import { deleteSweet } from '../../actions/carrito';
-import { useForm } from "../../hooks/useForm";
+import { useDispatch} from "react-redux";
+import { deleteSweet, uploadTotalDelete } from '../../actions/carrito';
 
-export const SweetsCarrito = ({id,Nombre,cantidad,url}) => {
+export const SweetsCarrito = ({id,Nombre,cantidad,url,total}) => {
 
   const dispatch = useDispatch();
   // const [formValues, handleInputChange] = useForm({});
   // let { cantidad } = formValues;
 
   const handleDelete = () => {
-    dispatch(deleteSweet(id))
+    dispatch(uploadTotalDelete(id,total))
   }
  
   return (
@@ -23,6 +22,7 @@ export const SweetsCarrito = ({id,Nombre,cantidad,url}) => {
         <img
           src={url}
           width="40px"
+          alt="imagen product"
         ></img>
       </div>
       <div className="info_product">

@@ -1,9 +1,10 @@
 .content_principal{
   height: 100vh;
   background-color: $primary;
-  background-image: url('../images/candies.png');
+  background-image: url('../../images/candies.png');
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: 2s display ease;
 }
 

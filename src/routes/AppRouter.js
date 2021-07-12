@@ -8,6 +8,9 @@ import {useDispatch} from 'react-redux'
 import { login } from '../actions/auth';
 import { Principal } from '../components/UI/Principal';
 import { startLoadProducts } from '../actions/products';
+import { DashboardRoutes } from './DashBoardRoutes';
+import { loadHistory } from '../actions/historial';
+import { loadProducts } from '../helpers/loadProducts';
 export const AppRouter = () => {
 
   const dispatch = useDispatch();
@@ -18,9 +21,11 @@ export const AppRouter = () => {
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user?.uid) {
-        dispatch(login(user.uid, user.displayName));
+        dispatch(login(user.uid, user.displayName,user.photoURL));
         setIsLoggedIn(true);
         dispatch(startLoadProducts());
+        
+        dispatch(loadHistory());
       } else {
         setIsLoggedIn(false);
       }
@@ -38,14 +43,15 @@ export const AppRouter = () => {
         <Switch>
           <PublicRouter
             isLoggedIn={isLoggedIn}
+            
             path="/auth"
             component={AuthRouter}
           />
           <PrivateRouter
             isLoggedIn={isLoggedIn}
-            exact
+            
             path="/"
-            component={Principal}
+            component={DashboardRoutes}
           />
 
           <Redirect to="/auth/login" />

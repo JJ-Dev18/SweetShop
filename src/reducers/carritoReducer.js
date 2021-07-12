@@ -1,4 +1,4 @@
-import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
+
 import {types } from '../types/types'
 
 const initialState = {
@@ -48,7 +48,13 @@ export const carritoReducer = (state=initialState,action) => {
          ...state,
          total: action.payload
        } 
-              
+       case types.comprarCarro:
+         return {
+           ...state,
+           total : 0,
+           cantidad: 0,
+           sweets : action.payload
+         }       
        default:
          return state;
          

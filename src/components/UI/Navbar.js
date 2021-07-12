@@ -1,20 +1,27 @@
 import React from 'react'
-import { useForm } from '../../hooks/useForm';
 import { startLogout } from "../../actions/auth";
 import { useDispatch,useSelector } from "react-redux";
+import { openMenu } from '../../actions/menu';
+import {  useHistory } from "react-router-dom";
+import { Menu } from './Menu';
 
 export const Navbar = () => {
    const dispatch = useDispatch();
-  const [formValues,handleInputChange] = useForm({
-
-  })
-  const {name} = useSelector( state => state.auth );
-  const {searchText} = formValues
+  
+  const { name, photoURL } = useSelector((state) => state.auth);
+  const history = useHistory();
+ 
   const handleLogout = () => {
     dispatch(startLogout());
+    history.replace('/login')
   };
+  const handleOpenMenu = () => {
+    dispatch(openMenu())
+  }
   return (
     <div className="navBar">
+      <img src={photoURL} width="40px" height="40px" alt="imagen profile" className="pointer" onClick={handleOpenMenu}></img>
+      
       <span>{name} </span>
       {/* <form>
         <input

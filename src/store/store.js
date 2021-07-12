@@ -4,6 +4,8 @@ import thunk from "redux-thunk";
 import { uiReducer } from "../reducers/uiRedcer";
 import { carritoReducer } from "../reducers/carritoReducer";
 import { productsReducer } from "../reducers/productsReducer";
+import { historialReducer } from "../reducers/historialReducer";
+import { menuReducer } from "../reducers/menuReducer";
 // import { notesReducer } from "../reducers/notesReducer";
 
 const composeEnhancers =
@@ -16,7 +18,8 @@ const reducers = combineReducers({
   ui: uiReducer,
   product: productsReducer,
   carrito: carritoReducer,
-  
+  history : historialReducer,
+  menu: menuReducer
   // notes: notesReducer,
 });
 export const store = createStore(

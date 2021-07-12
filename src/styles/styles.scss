@@ -1,8 +1,10 @@
 @import './base/base';
 @import './base/settings';
-@import './auth.scss';
+@import './auth/auth.scss';
 @import './button.scss';
-@import './principal.scss';
-@import './navbar.scss';
-@import './products.scss';
-@import './carrito.scss'
+@import './ui/principal.scss';
+@import './ui/navbar.scss';
+@import './ui/menu.scss';
+@import './products/products.scss';
+@import './carrito/carrito.scss';
+@import './historial/historial.scss'
