@@ -9,7 +9,7 @@ import { login } from '../actions/auth';
 import { Principal } from '../components/UI/Principal';
 import { startLoadProducts } from '../actions/products';
 import { DashboardRoutes } from './DashBoardRoutes';
-import { loadHistory } from '../actions/historial';
+import { loadCantidadHistory, loadHistory, startLoadCantidadHistory } from '../actions/historial';
 import { loadProducts } from '../helpers/loadProducts';
 export const AppRouter = () => {
 
@@ -24,7 +24,7 @@ export const AppRouter = () => {
         dispatch(login(user.uid, user.displayName,user.photoURL));
         setIsLoggedIn(true);
         dispatch(startLoadProducts());
-        
+        dispatch(loadCantidadHistory())
         dispatch(loadHistory());
       } else {
         setIsLoggedIn(false);

@@ -12,7 +12,7 @@
        case types.setHistory:
          return{
            ...state,
-           compras : [...action.payload],
+           compras : action.payload,
            
          };
        case types.openHistory:
@@ -25,6 +25,11 @@
            ...state,
            cantidad :action.payload
         }
+      case types.loadCantidadHistory:
+        return{
+          ...state,
+          cantidad: action.payload
+        }  
       
       default:
         return state;

@@ -6,14 +6,18 @@ export const loadCompras = async (uid,cantidad) => {
    for(let i = 1;i <= cantidad;i ++){
     const comprasSnap = await db.collection(`${uid}/historial/compra#${i}`).get();
     const compras = [];
+    compras.push(`compra#${i}`);
     comprasSnap.forEach((comprasHijo) => {
       compras.push({
-        id: comprasHijo.id,
+        idSweet: comprasHijo.id,
         ...comprasHijo.data(),
       });
+     
     });
+    // compras.push(`compra#${i}`)
     history.push(compras)
+   
    }
-  //  console.log(history)
+   console.log(history)
    return history;
 }

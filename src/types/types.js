@@ -16,6 +16,7 @@ export const types = {
   openHistory: "[History] Open",
   setHistory: "[History] Set",
   loadHistory: "[History] Loading",
+  loadCantidadHistory: '[History] loadCantidad',
   openProducHistory : '[History] Product Open',
   newCantidadHistory: '[History] Set Cantidad',
  //Menu 
