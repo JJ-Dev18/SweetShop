@@ -70,7 +70,7 @@ export const startGoogleLogin = () => {
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
         dispatch(login(user.uid, user.displayName, user.photoURL));
-        console.log(user.photoURL);
+        
       })
       .catch( (e) => console.log(e));
   };

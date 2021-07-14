@@ -6,7 +6,7 @@ export const startLoadProducts = () => {
    return async (dispatch) => {
       const products = await loadProducts()
       dispatch(loadingProducts(products))
-      console.log(products)
+      
    }
 }
 
