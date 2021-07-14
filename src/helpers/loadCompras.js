@@ -4,9 +4,10 @@ import { db } from "../firebase/firebase";
 export const loadCompras = async (uid,cantidad) => {
    const history = []
    for(let i = 1;i <= cantidad;i ++){
-    const comprasSnap = await db.collection(`${uid}/historial/compra#${i}`).get();
+    const comprasSnap = await db.collection(`${uid}/historial/${i}`).get();
     const compras = [];
-    compras.push(`compra#${i}`);
+  
+    compras.push(`${i}`);
     comprasSnap.forEach((comprasHijo) => {
       compras.push({
         idSweet: comprasHijo.id,
@@ -18,6 +19,6 @@ export const loadCompras = async (uid,cantidad) => {
     history.push(compras)
    
    }
-   console.log(history)
+
    return history;
 }

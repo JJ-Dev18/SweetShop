@@ -2,8 +2,7 @@ import React from 'react'
 import { useDispatch} from "react-redux";
 import { deleteSweet, uploadTotalDelete } from '../../actions/carrito';
 
-export const SweetsCarrito = ({id,Nombre,cantidad,url,total}) => {
-
+export const SweetsCarrito = React.memo(({id,Nombre,cantidad,url,total}) => {
   const dispatch = useDispatch();
   // const [formValues, handleInputChange] = useForm({});
   // let { cantidad } = formValues;
@@ -31,4 +30,4 @@ export const SweetsCarrito = ({id,Nombre,cantidad,url,total}) => {
       </div>
     </div>
   );
-}
+})

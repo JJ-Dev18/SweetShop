@@ -5,6 +5,5 @@ export const totalCarrito = (sweets) => {
    sweets.map(sweet => 
       total += sweet.cantidad * sweet.precio
     )
-    console.log(total)
     return total;
 }

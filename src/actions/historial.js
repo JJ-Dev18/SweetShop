@@ -11,7 +11,7 @@ export const loadHistory = () => {
     const {uid} = getState().auth
     const{ cantidad} = getState().history
     const compras = await  loadCompras(uid,cantidad)
-    console.log(compras)
+    
     dispatch(setHistory(compras))
   }
 }
@@ -30,10 +30,10 @@ export const addCompraHistorial = () => {
     const data = {
        total
     }
-    await db.collection(`${uid}/historial/compra#${cantidad}`).doc('info').set(data);
+    await db.collection(`${uid}/historial/${cantidad}`).doc('info').set(data);
     for (let i = 0; i < sweets.length; i++) {
       const doc = await db
-        .collection(`${uid}/historial/compra#${cantidad}`)
+        .collection(`${uid}/historial/${cantidad}`)
         .add(sweets[i]);
     }
      

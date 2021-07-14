@@ -1,10 +1,9 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import {  calcularTotal, closeCarrito, comprarCarrito } from '../../actions/carrito';
 import {
   addCantidadHistory,
   addCompraHistorial,
-  loadHistory
 } from "../../actions/historial";
 import { openProducts } from '../../actions/products';
 import { SweetsCarrito } from './SweetsCarrito';
@@ -14,7 +13,7 @@ export const Carrito = () => {
   const dispatch = useDispatch();
   const {total : totalP} = useSelector( state => state.carrito );
   const {sweets} = useSelector( state => state.carrito );
-  const [totalState, settotalState] = useState(totalP)
+
   
   const handleBack = () => {
      dispatch(closeCarrito())

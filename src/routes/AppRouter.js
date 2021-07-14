@@ -6,11 +6,9 @@ import {PrivateRouter} from './PrivateRouter'
 import {PublicRouter} from './PublicRouter'
 import {useDispatch} from 'react-redux'
 import { login } from '../actions/auth';
-import { Principal } from '../components/UI/Principal';
 import { startLoadProducts } from '../actions/products';
 import { DashboardRoutes } from './DashBoardRoutes';
-import { loadCantidadHistory, loadHistory, startLoadCantidadHistory } from '../actions/historial';
-import { loadProducts } from '../helpers/loadProducts';
+import { loadCantidadHistory, loadHistory } from '../actions/historial';
 export const AppRouter = () => {
 
   const dispatch = useDispatch();
@@ -21,11 +19,12 @@ export const AppRouter = () => {
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user?.uid) {
+        dispatch(loadHistory(user.uid));
         dispatch(login(user.uid, user.displayName,user.photoURL));
         setIsLoggedIn(true);
         dispatch(startLoadProducts());
         dispatch(loadCantidadHistory())
-        dispatch(loadHistory());
+        
       } else {
         setIsLoggedIn(false);
       }
@@ -35,7 +34,9 @@ export const AppRouter = () => {
   }, [dispatch, setChecking, setIsLoggedIn]);
 
   if (checking) {
-    return <h1> Wait...</h1>;
+    
+    return <h1>Mas....</h1>
+    
   }
   return (
     <Router>

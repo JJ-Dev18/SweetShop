@@ -1,23 +1,22 @@
 import React from 'react'
 import {useDispatch,useSelector} from 'react-redux'
-import { Link, NavLink, useHistory } from "react-router-dom";
+import { Link,  useHistory } from "react-router-dom";
 import {  startLogout } from '../../actions/auth';
-import { closeCarrito, openCarrito } from '../../actions/carrito';
-import { openHistory } from '../../actions/historial';
+import {  closeCarrito, openCarrito } from '../../actions/carrito';
+
 import { openMenu } from '../../actions/menu';
-import { openProducts } from '../../actions/products';
+
 
 export const Menu = () => {
   const dispatch = useDispatch();
-  const {open} = useSelector( state => state.menu );
-  const history = useHistory()
+  
   const handleShopping = () => {
     dispatch(openCarrito());
     dispatch(openMenu());
   };
   const handleMenu = ()=> {
     dispatch(openMenu())
-    // dispatch(closeCarrito())
+    dispatch(closeCarrito())
   }
   // };
   const handleLoggout = () => { 

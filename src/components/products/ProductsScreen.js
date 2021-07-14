@@ -6,10 +6,11 @@ import { useForm } from '../../hooks/useForm';
 const initialState = {
   cantidad : ""
 }
-export const ProductsScreen = (sweet) => {
+export const ProductsScreen = React.memo((sweet) => {
   const dispatch = useDispatch();
   const [formValues,handleInputChange,reset] = useForm(initialState)
   let {cantidad} = formValues
+
   // const sweet = {
   //   id,
   //   cantidad,
@@ -47,4 +48,4 @@ export const ProductsScreen = (sweet) => {
       </div>
     </div>
   );
-}
+})
