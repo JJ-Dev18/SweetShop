@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/SweetShop/static/css/main.5762c9d3.chunk.css",
+    "main.js": "/SweetShop/static/js/main.8005a594.chunk.js",
+    "main.js.map": "/SweetShop/static/js/main.8005a594.chunk.js.map",
+    "runtime-main.js": "/SweetShop/static/js/runtime-main.141571f4.js",
+    "runtime-main.js.map": "/SweetShop/static/js/runtime-main.141571f4.js.map",
+    "static/js/2.350d0238.chunk.js": "/SweetShop/static/js/2.350d0238.chunk.js",
+    "static/js/2.350d0238.chunk.js.map": "/SweetShop/static/js/2.350d0238.chunk.js.map",
+    "index.html": "/SweetShop/index.html",
+    "static/css/main.5762c9d3.chunk.css.map": "/SweetShop/static/css/main.5762c9d3.chunk.css.map",
+    "static/js/2.350d0238.chunk.js.LICENSE.txt": "/SweetShop/static/js/2.350d0238.chunk.js.LICENSE.txt",
+    "static/media/styles.scss": "/SweetShop/static/media/candies.aae9d64c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.141571f4.js",
+    "static/js/2.350d0238.chunk.js",
+    "static/css/main.5762c9d3.chunk.css",
+    "static/js/main.8005a594.chunk.js"
+  ]
+}
