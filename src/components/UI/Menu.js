@@ -1,6 +1,6 @@
 import React from 'react'
-import {useDispatch,useSelector} from 'react-redux'
-import { Link,  useHistory } from "react-router-dom";
+import {useDispatch} from 'react-redux'
+import { Link } from "react-router-dom";
 import {  startLogout } from '../../actions/auth';
 import {  closeCarrito, openCarrito } from '../../actions/carrito';
 
@@ -18,11 +18,9 @@ export const Menu = () => {
     dispatch(openMenu())
     dispatch(closeCarrito())
   }
-  // };
+  
   const handleLoggout = () => { 
-    // if (open) {
-    //   dispatch(openMenu());
-    //   }
+  
     dispatch(startLogout());
     
   };

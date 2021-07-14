@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch} from "react-redux";
-import { deleteSweet, uploadTotalDelete } from '../../actions/carrito';
+import { uploadTotalDelete } from '../../actions/carrito';
 
 export const SweetsCarrito = React.memo(({id,Nombre,cantidad,url,total}) => {
   const dispatch = useDispatch();

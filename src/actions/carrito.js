@@ -1,21 +1,5 @@
-import { db } from "../firebase/firebase";
+
 import { types } from "../types/types";
-
-// export const startNewProducto = () => {
-//   return async (dispatch, getState) => {
-//     const { uid } = getState().auth;
-//     const newNote = {
-//       title: "",
-//       body: "",
-//       date: new Date().getTime(),
-//     };
-
-//     const doc = await db.collection(`${uid}/journal/notes`).add(newNote);
-
-//     dispatch(activeNote(doc.id, newNote));
-//     dispatch(addNewNote(doc.id, newNote));
-//   };
-// };
 export const openCarrito = () => ({
   type: types.openCarrito,
   payload: true,
@@ -25,6 +9,8 @@ export const closeCarrito = () => ({
   type: types.closeCarrito,
   payload: false,
 });
+
+//Cargamos el nuevo producto a el carrito, si el producto ya existe solo agregamos la cantidad , si no existe agregamos el producto
 export const loadAddCarrito = (sweet, cantidad) => {
   return (dispatch, getState) => {
     const sweets = getState().carrito.sweets;
@@ -48,6 +34,7 @@ export const loadAddCarrito = (sweet, cantidad) => {
     }
   };
 };
+//Agregamos el dulce a el state de dulces,con su cantidad y su total anteriormente calculado
 export const addSweetCarrito = (sweet, cantidad, cantidadSweet, total) => ({
   type: types.addSweetCarro,
   payload: {
@@ -59,6 +46,7 @@ export const addSweetCarrito = (sweet, cantidad, cantidadSweet, total) => ({
     },
   },
 });
+//Cambiamos la cantidad  del dulce
 export const changeCantidadSweet = (id, sweet, cantidad, total) => ({
   type: types.addCantidadSweet,
   payload: {
@@ -71,11 +59,12 @@ export const changeCantidadSweet = (id, sweet, cantidad, total) => ({
     },
   },
 });
-
+//agregamos nueva cantidad del dulce 
 export const addCantidadSweet = (sweet) => ({
   type: types.addCantidadSweet,
   payload: sweet,
 });
+//Actualizamos el total si un dulce es eliminado 
 export const uploadTotalDelete = (id,totalSweet) => {
    return (dispatch,getState) => {
       const {total} = getState().carrito
@@ -86,15 +75,17 @@ export const uploadTotalDelete = (id,totalSweet) => {
    }
    
 }
-
+//eliminamos el dulce 
 export const deleteSweet = (id) => ({
   type: types.deleteSweet,
   payload: id,
 });
+//cambios el total en el state 
 export const setTotal = (total) => ({
   type: types.totalCarro,
   payload: total,
 });
+//Calculamos el total de todos los dulces
 export const calcularTotal = () => {
   return (dispatch, getState) => {
     let total = 0;
@@ -106,11 +97,10 @@ export const calcularTotal = () => {
     dispatch(setTotal(total));
   };
 };
+//vaciamos ducles en el carrito 
 export const comprarCarrito = () => ({
   type : types.comprarCarro,
   payload : []
   
 })
 
-
-export const updateCantidadSweet = () => {};

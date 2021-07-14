@@ -6,8 +6,8 @@ export const Compras = React.memo(({nombre,total}) => {
  
   return (
     <div>
-      <h2>{nombre}</h2>
-      <p>{total}</p>
+      <h2>Compra # {nombre}</h2>
+      <p>Total : {total}</p>
       <span>
         <Link to={`/historial/${nombre}`}>Ver mas ...</Link>
       </span>

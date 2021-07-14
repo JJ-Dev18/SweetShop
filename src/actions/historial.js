@@ -4,7 +4,7 @@ import { loadCompras } from '../helpers/loadCompras'
 import {types} from '../types/types'
 
 
-
+//Actualiza la lista de compras en el historial
 export const loadHistory = () => {
 
   return async (dispatch,getState) => {
@@ -15,10 +15,13 @@ export const loadHistory = () => {
     dispatch(setHistory(compras))
   }
 }
+//Cambia el estado de el history
 export const setHistory = (compras) => ({
   type: types.setHistory,
   payload: compras,
 });
+
+//Agrega y actualiza la cantidad de compras en la bd y en el state y agrega la nueva compra con sus respectivos dulces
 export const addCompraHistorial = () => {
   return async (dispatch, getState) => {
     const { sweets,total } = getState().carrito;
@@ -32,20 +35,17 @@ export const addCompraHistorial = () => {
     }
     await db.collection(`${uid}/historial/${cantidad}`).doc('info').set(data);
     for (let i = 0; i < sweets.length; i++) {
-      const doc = await db
+       await db
         .collection(`${uid}/historial/${cantidad}`)
         .add(sweets[i]);
     }
      
-   const cantidadCompras = await db.collection(`${uid}`).doc('cantidad').set(Numero);
-  //   const comprasCantidad = await db.collection(`${uid}/historial/cantidadCompras`).get()
-  //   const numero = comprasCantidad.data()
-  //   // const {numero:cantidadC } = numero;
-  //   console.log(numero)
+   await db.collection(`${uid}`).doc('cantidad').set(Numero);
+   dispatch(loadHistory())
   
   };
 };
-
+//Carga la cantidad de compras que hay en la bd al state del history
 export const loadCantidadHistory = () => {
   return async(dispatch,getState) => {
     const {uid} = getState().auth
@@ -54,10 +54,12 @@ export const loadCantidadHistory = () => {
     
   }
 }
+//cambia el estado de la cantidad de compras 
 export const startLoadCantidadHistory = (cantidad) => ({
   type : types.loadCantidadHistory,
   payload : cantidad
 })
+//modifica la cantidad de compras en history 
 export const addCantidadHistory= () => {
   return (dispatch,getState) => {
      const { cantidad } = getState().history
@@ -67,11 +69,9 @@ export const addCantidadHistory= () => {
      dispatch(setCantidadHistory(newCantidad))
   }
 }
+//cambia la cantidad en el state 
 export const setCantidadHistory = (newCantidad) => ({
   type: types.newCantidadHistory,
   payload : newCantidad
 })
-export const openHistory = () => ({
- type: types.openHistory
 
-})

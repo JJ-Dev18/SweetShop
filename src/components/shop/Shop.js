@@ -10,21 +10,12 @@ export const Shop = ({history}) => {
    const dispatch = useDispatch();
    const { sweets } = useSelector((state) => state.product  );
    const { cantidad } = useSelector((state) => state.carrito);
-   const {uid} = useSelector( state => state.auth );
-  
-
+   
    const handleCarritoOpen = () => {
       dispatch(openCarrito())
-      dispatch(openProducts())
-     
-      
+      dispatch(openProducts()) 
    } 
    
-  //  useEffect(() => {
-     
-  //    dispatch(setTotal(totalCarrito(sweets)));
-  //  }, [sweets]);
-
   return (
     <div className="content_products animate__animated animate__fadeIn">
       <h1>Sweets</h1>

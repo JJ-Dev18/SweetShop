@@ -1,5 +1,11 @@
-import { addCantidadHistory } from "../actions/historial";
+
 import { db } from "../firebase/firebase";
+
+/*
+Cargamos las compras dependiendo de la cantidad que hayamos obtenido que existe en la base de datos 
+esas son las veces que el ciclo traera una por una 
+Si en el loadCantidad obtenemos 5 entonces el for recorrera 5 veces el documento historial traera las colecciones de compras del 1 al 5 con sus dulces
+*/
 
 export const loadCompras = async (uid,cantidad) => {
    const history = []

@@ -3,7 +3,7 @@ import { startLogout } from "../../actions/auth";
 import { useDispatch,useSelector } from "react-redux";
 import { openMenu } from '../../actions/menu';
 import {  useHistory } from "react-router-dom";
-import { Menu } from './Menu';
+
 
 export const Navbar = () => {
    const dispatch = useDispatch();

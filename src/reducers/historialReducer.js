@@ -2,7 +2,6 @@
 
   const initialstate = {
      compras : [ ],
-     open: false,
      cantidad: 0
   }
 
@@ -12,14 +11,8 @@
        case types.setHistory:
          return{
            ...state,
-           compras : action.payload,
-           
+           compras : action.payload,     
          };
-       case types.openHistory:
-         return{
-           ...state,
-           open : !state.open
-         }
       case types.newCantidadHistory : 
         return{
            ...state,

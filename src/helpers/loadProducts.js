@@ -1,5 +1,6 @@
 import { db } from "../firebase/firebase";
 
+//Cargamos los productos 
 export const loadProducts = async (uid) => {
   const productSnap = await db
     .collection(`Productos/`)

@@ -11,12 +11,6 @@ export const ProductsScreen = React.memo((sweet) => {
   const [formValues,handleInputChange,reset] = useForm(initialState)
   let {cantidad} = formValues
 
-  // const sweet = {
-  //   id,
-  //   cantidad,
-  //   Nombre,
-  //   precio,
-  // };
   const handleAdd = () => {
     console.log(cantidad)
      if(cantidad === ""){
@@ -25,10 +19,8 @@ export const ProductsScreen = React.memo((sweet) => {
      else{
        cantidad = parseInt(cantidad);
      }
-     
      dispatch(loadAddCarrito(sweet,cantidad))
      reset()
-    //  dispatch(addCantidadSweet(id,cantidad))
   }
   return (
     <div className="product">
