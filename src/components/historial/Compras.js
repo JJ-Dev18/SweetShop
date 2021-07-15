@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import { Sweets } from './Sweets';
 
 export const Compras = React.memo(({nombre,total}) => {
  
@@ -11,6 +12,7 @@ export const Compras = React.memo(({nombre,total}) => {
       <span>
         <Link to={`/historial/${nombre}`}>Ver mas ...</Link>
       </span>
+     
     </div>
   );
 })

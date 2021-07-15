@@ -36,7 +36,13 @@
         background-color: darken($color: red, $amount: 10);
     }
 }
-
+.btn-comprar{
+    @include media-up(lg){
+   width: 70px;
+   height: 40px;
+   font-size: 1.4rem;
+ }
+}
 .btn-block{
     width: 100%;
 }

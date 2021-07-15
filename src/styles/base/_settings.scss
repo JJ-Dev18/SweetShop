@@ -8,6 +8,16 @@ $white: #fff;
 $google-blue: #4285f4;
 $button-active-blue: #1669f2;
 
+$breakpoints:(
+  sm:540px,
+  md: 1024px,
+  lg:1280px,
+);
+@mixin media-up($breakpoint) {
+  @media screen and(min-width: map-get($map: $breakpoints, $key:$breakpoint )){
+    @content
+  }
+}
 
 // FONT FAMILY  'Amatic SC', cursive;
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');

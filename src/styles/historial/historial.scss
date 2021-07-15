@@ -7,6 +7,18 @@
   padding: 40px;
   position: fixed;
   top:44px;
+ 
+
+  @include media-up(md){
+    width: 15vw;
+    left: 0;
+  }
+  @include media-up(lg){
+     
+     top: 60px;
+     width: 20vw;
+     left: 0
+  };
 }
 
 .content_historial ul{
@@ -20,4 +32,15 @@
   margin-top: 20px;
   color: black;
 
+}
+.historial_in_sweets{
+  display: none;
+
+  @include media-up(md){
+    display: flex;
+  }
+  
+  @include media-up(lg){
+    display: flex;
+  }
 }

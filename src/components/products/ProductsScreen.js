@@ -29,14 +29,16 @@ export const ProductsScreen = React.memo((sweet) => {
         <i className="fas fa-plus-circle pointer" onClick={handleAdd}></i>
       </div>
       <div className="img_product">
-        <img
-          src={sweet.url}
-          alt="imagen producto"
-        ></img>
+        <img src={sweet.url} alt="imagen producto"></img>
       </div>
       <div className="info_product">
-        ${sweet.precio}
-        <input type="number" name="cantidad" onChange={handleInputChange} value={cantidad}></input>
+        <span>${sweet.precio}</span>
+        <input
+          type="number"
+          name="cantidad"
+          onChange={handleInputChange}
+          value={cantidad}
+        ></input>
       </div>
     </div>
   );

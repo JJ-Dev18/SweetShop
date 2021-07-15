@@ -8,6 +8,10 @@
   padding: 20px;
   z-index: 2;
   overflow: hidden;
+   @include media-up(lg){
+     top: 60px;
+  };
+  
 }
 
 .content_menu ul {
@@ -19,6 +23,9 @@
 .nav_link {
   margin-top: 30px;
   cursor: pointer;
+   @include media-up(lg){
+     font-size: 1.3rem 
+  };
 }
 // .nav_link:hover{
 //   border-bottom: 1px solid $secondary;

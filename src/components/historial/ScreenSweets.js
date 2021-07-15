@@ -15,7 +15,7 @@ export const ScreenSweets = ({history}) => {
   
   return (
     <div className="content_products">
-      <i className="fas fa-backspace pointer" onClick={handleBack}></i>
+      <i className="fas fa-backspace pointer icon_back" onClick={handleBack}></i>
       <ol type="1">
         {sweets.map((sweet) => (
           <li>

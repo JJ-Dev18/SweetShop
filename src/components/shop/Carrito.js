@@ -31,7 +31,7 @@ export const Carrito = () => {
 
   return (
     <div className="content_products animate__animated animate__fadeIn">
-      <i className="fas fa-backspace pointer" onClick={handleBack}></i>
+      <i className="fas fa-backspace pointer icon_back" onClick={handleBack}></i>
       <h1>Shopping cart</h1>
       <div className="grid_products">
         {sweets.map((sweet) => (
@@ -39,7 +39,7 @@ export const Carrito = () => {
         ))}
       </div>
       <span>Total = {totalP} </span>
-      <button className="btn-danger" onClick={handleComprar}>
+      <button className="btn-danger btn-comprar" onClick={handleComprar}>
         Comprar
       </button>
     </div>

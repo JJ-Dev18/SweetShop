@@ -1,8 +1,11 @@
 .carrito_icon{
   position: absolute;
-  top: 30px;
+     top: 30px;
     right: 45px;
     color: $primary;
+    @include media-up(lg){
+    font-size: 30px;
+  }
     // font-weight: bold;
 }
 .carrito_product i{
@@ -15,4 +18,9 @@
 }
 .fa-backspace{
   color: $secondary;
+}
+.icon_back{
+  @include media-up(lg){
+    font-size: 30px;
+  }
 }
