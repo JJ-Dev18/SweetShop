@@ -45,6 +45,7 @@ export const Menu = () => {
           to="/historial"
           className="nav_link animate__animated animate__backInLeft "
           onClick={handleMenu}
+          
         >
           Shop History
         </Link>

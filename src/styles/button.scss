@@ -37,6 +37,7 @@
     }
 }
 .btn-comprar{
+    cursor: pointer;
     @include media-up(lg){
    width: 70px;
    height: 40px;

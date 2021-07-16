@@ -3,16 +3,21 @@ import { loadCantidadCompras } from '../helpers/cantidadCompras'
 import { loadCompras } from '../helpers/loadCompras'
 import {types} from '../types/types'
 
+//Carga la cantidad de compras que hay en la bd al state del history
+export const loadCantidadHistory = () => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    const cantidad = await loadCantidadCompras(uid);
+    dispatch(startLoadCantidadHistory(cantidad));
+    dispatch(loadHistory(uid,cantidad))
+  };
+};
 
 //Actualiza la lista de compras en el historial
-export const loadHistory = () => {
+export const loadHistory = (uid,cantidad) => {
 
-  return async (dispatch,getState) => {
-    const {uid} = getState().auth
-    const{ cantidad} = getState().history
-    const compras = await  loadCompras(uid,cantidad)
-    
-    dispatch(setHistory(compras))
+  return  (dispatch,getState) => {
+    const compras =  loadCompras(uid,cantidad).then(compritas => dispatch(setHistory(compritas))).catch(e => console.log(e))
   }
 }
 //Cambia el estado de el history
@@ -45,15 +50,8 @@ export const addCompraHistorial = () => {
   
   };
 };
-//Carga la cantidad de compras que hay en la bd al state del history
-export const loadCantidadHistory = () => {
-  return async(dispatch,getState) => {
-    const {uid} = getState().auth
-    const cantidad = await loadCantidadCompras(uid)
-    dispatch(startLoadCantidadHistory(cantidad))
-    
-  }
-}
+
+
 //cambia el estado de la cantidad de compras 
 export const startLoadCantidadHistory = (cantidad) => ({
   type : types.loadCantidadHistory,

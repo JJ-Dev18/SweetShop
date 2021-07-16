@@ -28,5 +28,7 @@
 }
 .navBar span{
   margin-left: 20px;
-  font-size: 2rem;
+  @include media-up(lg){
+   font-size: 2rem;
+  } 
 }

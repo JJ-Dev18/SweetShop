@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react'
+import {useSelector} from 'react-redux'
 import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
  import { firebase } from "../firebase/firebase";
 import {AuthRouter} from './AuthRouter'
@@ -15,21 +16,26 @@ export const AppRouter = () => {
 
   const [checking, setChecking] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const {compras} = useSelector( state => state.history );
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user?.uid) {
-        dispatch(loadHistory(user.uid));
-        dispatch(login(user.uid, user.displayName,user.photoURL));
+        dispatch(login(user.uid, user.displayName, user.photoURL));
+         
+        dispatch(loadCantidadHistory(user.uid));
+        
         setIsLoggedIn(true);
-        dispatch(startLoadProducts());
-        dispatch(loadCantidadHistory())
+        
+        dispatch(startLoadProducts()); 
+       
         
       } else {
         setIsLoggedIn(false);
       }
-
-      setChecking(false);
+     setChecking(false); 
+     
+      
     });
   }, [dispatch, setChecking, setIsLoggedIn]);
 
