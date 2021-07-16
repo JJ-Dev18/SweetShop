@@ -18,15 +18,10 @@ export const SweetsCarrito = React.memo(({id,Nombre,cantidad,url,total}) => {
         <i className="fas fa-trash pointer" onClick={handleDelete}></i>
       </div>
       <div className="img_product">
-        <img
-          src={url}
-          width="40px"
-          alt="imagen product"
-        ></img>
+        <img src={url} width="40px" alt="imagen product"></img>
       </div>
-      <div className="info_product">
-       {cantidad }
-     
+      <div className="info_sweet">
+        <span> {cantidad}</span>
       </div>
     </div>
   );

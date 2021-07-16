@@ -46,7 +46,7 @@ export const addCompraHistorial = () => {
     }
      
    await db.collection(`${uid}`).doc('cantidad').set(Numero);
-   dispatch(loadHistory())
+   dispatch(loadCantidadHistory())
   
   };
 };

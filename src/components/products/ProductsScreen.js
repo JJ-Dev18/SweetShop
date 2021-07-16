@@ -2,7 +2,7 @@ import React from 'react'
 import {useDispatch} from 'react-redux'
 import { loadAddCarrito } from '../../actions/carrito';
 import { useForm } from '../../hooks/useForm';
-
+import Swal from 'sweetalert2'
 const initialState = {
   cantidad : ""
 }
@@ -20,6 +20,7 @@ export const ProductsScreen = React.memo((sweet) => {
        cantidad = parseInt(cantidad);
      }
      dispatch(loadAddCarrito(sweet,cantidad))
+     
      reset()
   }
   return (

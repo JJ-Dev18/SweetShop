@@ -7,7 +7,7 @@ import {
 } from "../../actions/historial";
 import { openProducts } from '../../actions/products';
 import { SweetsCarrito } from './SweetsCarrito';
-
+import Swal  from 'sweetalert2';
 export const Carrito = () => {
   
   const dispatch = useDispatch();
@@ -20,9 +20,31 @@ export const Carrito = () => {
      dispatch(openProducts())
   }
   const handleComprar = () => {
-    dispatch(addCantidadHistory())
-    dispatch(addCompraHistorial())
+    if(sweets.length === 0){
+      Swal.fire({
+        title: "there aren't sweets ",
+        icon: "error",
+      });
+    }else{
+Swal.fire({
+  title: "Are you sure?",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#008f39",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, Buy it ",
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire("Buy it!", "Your Shop is load.", "success");
+    dispatch(addCantidadHistory());
+    dispatch(addCompraHistorial());
     dispatch(comprarCarrito());
+  }
+});
+    }
+
+    
+    
   }
   useEffect(() => {
     dispatch(calcularTotal())
@@ -40,7 +62,7 @@ export const Carrito = () => {
       </div>
       <span>Total = {totalP} </span>
       <button className="btn-danger btn-comprar" onClick={handleComprar}>
-        Comprar
+        Buy
       </button>
     </div>
   );

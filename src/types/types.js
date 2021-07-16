@@ -19,6 +19,7 @@ export const types = {
   loadCantidadHistory: '[History] loadCantidad',
   openProducHistory : '[History] Product Open',
   newCantidadHistory: '[History] Set Cantidad',
+  resetHistory : "[History] reset History ",
  //Menu 
   openMenu: "[Menu] Open",
 
@@ -33,4 +34,5 @@ export const types = {
   totalCarro: "[Carro] total",
   totalDulce: "[Dulce] total",
   comprarCarro: "[Carro] Comprar",
+  resetCarro : "[Carro] Reset"
 };

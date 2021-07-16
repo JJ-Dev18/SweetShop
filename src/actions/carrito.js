@@ -1,5 +1,6 @@
 
 import { types } from "../types/types";
+import Swal from 'sweetalert2'
 export const openCarrito = () => ({
   type: types.openCarrito,
   payload: true,
@@ -29,6 +30,16 @@ export const loadAddCarrito = (sweet, cantidad) => {
     const total = cantidad * sweet.precio;
     if (!exist) {
       dispatch(addSweetCarrito(sweet, cantidad, cantidadSweet, total));
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        width: "400px",
+        heightAuto :"100px",
+        title: sweet.Nombre,
+        text: cantidad,
+        showConfirmButton: false,
+        timer: 50000,
+      });
     } else {
       dispatch(changeCantidadSweet(sweet.id, sweet, cantidad, total));
     }
@@ -72,6 +83,16 @@ export const uploadTotalDelete = (id,totalSweet) => {
       const newTotal = total - totalSweet;
       dispatch(setTotal(newTotal))
       dispatch(deleteSweet(id))
+       Swal.fire({
+         position: "top-end",
+         icon: "error",
+         width: "400px",
+         heightAuto: "100px",
+         title: 'Dulce eliminado',
+         text: totalSweet,
+         showConfirmButton: false,
+         timer: 50000,
+       });
    }
    
 }
@@ -102,5 +123,9 @@ export const comprarCarrito = () => ({
   type : types.comprarCarro,
   payload : []
   
+})
+
+export const resetCarrito = () => ({
+  type : types.resetCarro
 })
 

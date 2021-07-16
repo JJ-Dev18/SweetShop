@@ -54,7 +54,12 @@ export const carritoReducer = (state=initialState,action) => {
            total : 0,
            cantidad: 0,
            sweets : action.payload
-         }       
+         } 
+         
+       case types.resetCarro:
+         return {
+           ...initialState
+       }  
        default:
          return state;
          

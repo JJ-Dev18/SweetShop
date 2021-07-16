@@ -9,7 +9,7 @@ export const Compras = React.memo(({nombre,total}) => {
     <div>
       <h2>Compra # {nombre}</h2>
       <p>Total : {total}</p>
-      <span>
+      <span id="verMas">
         <Link to={`/historial/${nombre}`}>Ver mas ...</Link>
       </span>
      

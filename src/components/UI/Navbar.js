@@ -3,6 +3,7 @@ import { startLogout } from "../../actions/auth";
 import { useDispatch,useSelector } from "react-redux";
 import { openMenu } from '../../actions/menu';
 import {  useHistory } from "react-router-dom";
+import { resetCarrito } from '../../actions/carrito';
 
 
 export const Navbar = () => {
@@ -13,6 +14,7 @@ export const Navbar = () => {
  
   const handleLogout = () => {
     dispatch(startLogout());
+    dispatch(resetCarrito())
     history.replace('/login')
   };
   const handleOpenMenu = () => {
