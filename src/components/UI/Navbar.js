@@ -22,8 +22,17 @@ export const Navbar = () => {
   }
   return (
     <div className="navBar">
-      <img src={photoURL} width="40px" height="40px" alt="imagen profile" className="pointer" onClick={handleOpenMenu}></img>
-      
+      <div className="content_img_perfil">
+        <img
+          src={photoURL}
+          width="40px"
+          height="40px"
+          alt="imagen profile"
+          className="pointer"
+          onClick={handleOpenMenu}
+        ></img>
+      </div>
+
       <span>{name} </span>
       {/* <form>
         <input
@@ -38,9 +47,9 @@ export const Navbar = () => {
         <button className="btn m-1 btn-block btn-outline-primary">
           Search...
         </button> */}
-        <button className="btn-danger" onClick={handleLogout}>
-          Logout
-        </button>
+      <button className="btn-danger" onClick={handleLogout}>
+        Logout
+      </button>
       {/* </form> */}
     </div>
   );

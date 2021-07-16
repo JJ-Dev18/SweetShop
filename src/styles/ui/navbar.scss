@@ -8,13 +8,28 @@
   padding: 15px;
   position: fixed;
   overflow-y: hidden;
+  z-index: 2;
   @include media-up(lg){
     height: 60px;
+    
   }
+}
+.content_img_perfil{
+  width: 50px;
+  height: 50px;
+  border: 2px solid $secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.content_img_perfil img:hover{
+  opacity: 50%;
 }
 .navBar img{
   border-radius: 50%;
 }
+
 .navBar button{
  width: 40px;
  margin-left: auto;
@@ -31,4 +46,17 @@
   @include media-up(lg){
    font-size: 2rem;
   } 
+}
+@keyframes rebote {
+
+  0%{
+    opacity: 0%;
+  }
+  25%{
+     opacity: 100%;
+      
+  }
+  100%{
+     opacity: 0%;
+  }
 }

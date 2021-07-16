@@ -3,19 +3,17 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background-color: white;
-  padding: 40px;
+  padding: 0 20px;
+  background-color:white;
   position: fixed;
-  top:44px;
- 
-
+  padding-top: 45px;
+  padding-bottom: 15px;
+  top: 0;
   @include media-up(md){
     width: 15vw;
     left: 0;
   }
-  @include media-up(lg){
-     
-     top: 60px;
+  @include media-up(lg){ 
      width: 20vw;
      left: 0
   };
